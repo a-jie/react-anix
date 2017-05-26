@@ -1,6 +1,6 @@
 {
   "name": "react-anix",
-  "version": "0.1.4",
+  "version": "0.1.3",
   "license": "BSD",
   "keywords": [
     "react",
@@ -8,15 +8,8 @@
     "animation",
     "animate"
   ],
-  "main": "src/index.ts",
+  "main": "index.js",
   "homepage": "https://github.com/a-jie/react-anix",
-  "scripts": {
-    "start": "",
-    "package": "node .makepackage.js",
-    "publish": "cd ./build && npm publish",
-    "build": "rimraf build && webpack --config webpack.config.js",
-    "all": "npm-run-all build package"
-  },
   "dependencies": {
     "anix": "^0.2.3"
   },
