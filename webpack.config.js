@@ -11,7 +11,6 @@ var config = {
         path: path.join(__dirname, 'build'),
         publicPath: 'build/',
         filename: 'index.js',
-        sourceMapFilename: 'index.map',
         library: 'ReactAnix',
         libraryTarget: 'umd'
     },
@@ -27,17 +26,17 @@ var config = {
         extensions: ['.js', '.jsx']
     },
     externals: {
-        react: {
+        'react': {
             root: 'React',
             commonjs2: 'react',
             commonjs: 'react',
-            amd: 'react',
+            amd: 'react'
         },
         'react-dom': {
             root: 'ReactDOM',
             commonjs2: 'react-dom',
             commonjs: 'react-dom',
-            amd: 'react-dom',
+            amd: 'react-dom'
         }
     },
 };
