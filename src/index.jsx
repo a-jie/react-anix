@@ -54,13 +54,12 @@ export class Anix extends Component {
   }
 
   componentDidMount() {
-    if(this.props.init)
-    {
+    if (this.props.init) {
       let children = [];
-      this.state.children.map((child,index) => {
-          children.push(index);
+      this.state.children.map((child, index) => {
+        children.push(index);
       });
-      
+
       this.appear && this.anixChildren(this.appear, children, 'appear');
     }
   }
