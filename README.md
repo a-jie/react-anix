@@ -29,16 +29,21 @@ import { Anix } from 'react-anix';
   { color:'#ffcccc', time:.5, play:'disAppear' },
   { time:.5, appear:true ,from:{ width:'20px' }, to: { width:'220px', delay:.1 }}
   ]}
-
+	
+  or 
   ani={{ left:'20px', time:.5, play:this.state.play }}
-
+  
+  or 
   appear={{ left:'20px', time:.5 }}
+  
+  control animation play
+  play={this.state.play}
   >
   ...
   </Anix>
 ```
 
-## Examples
+## Test and Build
 
 ```
 npm start
