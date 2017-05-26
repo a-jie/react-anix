@@ -1,4 +1,4 @@
-# AniX
+# react-anix
 
 The Simplest Animation Plugin for react.
 
@@ -12,24 +12,30 @@ Quick Start
 Install and manage AniX with npm.
 
 ```
-$ npm install anix --save
+$ npm install react-anix --save
 ```
 
 import and use the AniX library.
 
 ```
 //1. import module
-import { AniX } from 'anix';
+import { Anix } from 'react-anix';
 
-//2. use
-AniX.to(dom, 1, {
-    width: "200px",
-    height: "100px",
-    delay: .5,
-    onComplete: ()=>{
-      	alert("over");
-    }
-});
+<Anix 
+  anis={[
+  { left:'20px', time:.5, delay:3, play:this.state.play },
+  { color:'#ffcccc', time:.5, onComplete:this.aniComplete.bind(this), appear:true },
+  { color:'#ffcccc', time:.5, ease:'easeInOutBack', disAppear:true },
+  { color:'#ffcccc', time:.5, play:'disAppear' },
+  { time:.5, appear:true ,from:{ width:'20px' }, to: { width:'220px', delay:.1 }}
+  ]}
+
+  ani={{ left:'20px', time:.5, play:this.state.play }}
+
+  appear={{ left:'20px', time:.5 }}
+  >
+  ...
+  </Anix>
 ```
 
 ## Examples
