@@ -11,8 +11,8 @@
   "main": "src/index.ts",
   "homepage": "https://github.com/a-jie/react-anix",
   "scripts": {
-    "build": "rimraf lib && babel src --out-dir lib && npm run build:dist",
-    "build:dist": "rimraf lib/dist && webpack -p --define process.env.NODE_ENV='production'"
+    "start": "rimraf lib && babel src --out-dir lib && npm run build:dist",
+    "build": "rimraf build && webpack --config webpack.config.js -p --define process.env.NODE_ENV='production'"
   },
   "dependencies": {
     "anix": "^0.2.3"

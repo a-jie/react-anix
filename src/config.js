@@ -1,0 +1,1 @@
+export const KEY_WORDS = ['time', 'play', 'appear', 'disAppear'];

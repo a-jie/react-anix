@@ -26,7 +26,9 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { AniX } from 'anix';
 
-let __keywords = ['time', 'play', 'appear', 'disAppear'];
+import { KEY_WORDS } from './config';
+import { prefixAniObj, cloneArray } from './utils';
+
 
 export class Anix extends Component {
 
@@ -48,7 +50,7 @@ export class Anix extends Component {
     this.appear = this.getAppear();
     this.disAppear = this.getDisAppear();
     this.normal = this.getNormal();
-    this.normal.map(ani => __prefixAniObj(ani));
+    this.normal.map(ani => prefixAniObj(ani));
 
     this.oldCache.play = this.props.play;
   }
@@ -84,7 +86,7 @@ export class Anix extends Component {
       let children = [];
       prevChildren = this.getChildren(prevChildren);
       nextChildren = this.getChildren(nextChildren);
-      __cloneArray(children, prevChildren);
+      cloneArray(children, prevChildren);
 
       nextChildren.map(child => {
         if (!prevChildren.find(nChild => nChild.key === child.key)) {
@@ -176,7 +178,7 @@ export class Anix extends Component {
     let newProps = {};
 
     for (let key in props) {
-      if (__keywords.indexOf(key) < 0) {
+      if (KEY_WORDS.indexOf(key) < 0) {
         if (key === 'ease') {
           newProps['ease'] = AniX.ease[props[key]];
         } else {
@@ -279,17 +281,25 @@ export class Anix extends Component {
 
   render() {
     let children = this.state.children;
+    let childrenToRender = [];
+    children.map((child, index) => {
+      childrenToRender.push(React.cloneElement(child, { ref: index }));
+    });
 
+    let props = Object.assign({}, this.props);
+    delete props.children;
+    delete props.anis;
+    delete props.ani;
+    delete props.appear;
+    delete props.disAppear;
+    delete props.play;
+    delete props.init;
 
-    return (
-      <div>
-        {
-          children.map((child, index) => {
-            return React.cloneElement(child, { ref: index });
-          })
-        }
-      </div>
-    );
+    React.createElement(
+      this.props.component,
+      props,
+      childrenToRender,
+    )
   }
 
   getChildren(children) {
@@ -306,23 +316,4 @@ Anix.propTypes = {
   disAppear: PropTypes.object,
   play: PropTypes.any,
   init: PropTypes.any
-}
-
-////////////////////////////////////////////////////////////////////////////////////////
-//
-//  Utils
-//
-////////////////////////////////////////////////////////////////////////////////////////
-/** prefix function */
-function __prefixAniObj(ani) {
-  if (!ani.name) ani.name = 'play';
-}
-
-function __cloneArray(arr1, arr2) {
-  arr1.length = 0;
-  for (let i = 0; i < arr2.length; i++) {
-    arr1.push(arr2[i]);
-  }
-
-  return arr1;
 }
