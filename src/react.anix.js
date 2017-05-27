@@ -76,7 +76,7 @@ export class Anix extends Component {
     let allChildren = this.mergeChildren(this.props.children, nextProps.children);
     this.setState({ children: allChildren });
     this.compareChildren(nextProps, allChildren);
-    this.aniPlayNormal(nextProps);
+    this.aniPlayNormal(nextProps, allChildren);
 
     this.nextProps = nextProps;
   }
@@ -141,11 +141,14 @@ export class Anix extends Component {
   //  animation
   //
   ////////////////////////////////////////////////////////////////////////////////////////
-  aniPlayNormal(nextProps) {
-    if (nextProps.play && this.oldCache.play !== nextProps.play) {
+  aniPlayNormal(nextProps, allChildren) {
+    if (nextProps.play) {
+      let allChildrenRefs = [];
+      allChildren.map((child, index) => allChildrenRefs.push(index));
+
       this.normal.map((ani, i) => {
         if (ani.name === 'play') {
-          this.anixChildren(ani);
+          this.anixChildren(ani, allChildrenRefs);
         }
       });
     }
@@ -168,9 +171,9 @@ export class Anix extends Component {
     let time = props.time || 0.5;
 
     if (props.from && props.to) {
-      AniX.fromTo(node, time, props.from, this.getPureProps(props.to, complete));
+      node && AniX.fromTo(node, time, props.from, this.getPureProps(props.to, complete));
     } else {
-      setTimeout(() => AniX.to(node, time, this.getPureProps(props, complete)), 1);
+      node && setTimeout(() => AniX.to(node, time, this.getPureProps(props, complete)), 1);
     }
   }
 
@@ -283,7 +286,7 @@ export class Anix extends Component {
     let children = this.state.children;
     let childrenToRender = [];
     children.map((child, index) => {
-      childrenToRender.push(React.cloneElement(child, { ref: index }));
+      child && childrenToRender.push(React.cloneElement(child, { ref: index }));
     });
 
     let props = Object.assign({}, this.props);
@@ -294,12 +297,9 @@ export class Anix extends Component {
     delete props.disAppear;
     delete props.play;
     delete props.init;
+    delete props.component;
 
-    React.createElement(
-      this.props.component,
-      props,
-      childrenToRender,
-    )
+    return React.createElement(this.props.component, props, childrenToRender);
   }
 
   getChildren(children) {
@@ -309,6 +309,7 @@ export class Anix extends Component {
 }
 
 Anix.propTypes = {
+  component: PropTypes.any,
   children: PropTypes.any,
   anis: PropTypes.array,
   ani: PropTypes.object,
@@ -316,4 +317,8 @@ Anix.propTypes = {
   disAppear: PropTypes.object,
   play: PropTypes.any,
   init: PropTypes.any
+}
+
+Anix.defaultProps = {
+  component: 'span'
 }
