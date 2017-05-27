@@ -32,6 +32,12 @@ var config = {
             commonjs: 'react',
             amd: 'react'
         },
+        'anix': {
+            root: 'AniX',
+            commonjs2: 'anix',
+            commonjs: 'anix',
+            amd: 'anix'
+        },
         'react-dom': {
             root: 'ReactDOM',
             commonjs2: 'react-dom',
