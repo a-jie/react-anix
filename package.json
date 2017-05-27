@@ -1,6 +1,6 @@
 {
   "name": "react-anix",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "license": "BSD",
   "keywords": [
     "react",
@@ -18,7 +18,8 @@
     "all": "npm-run-all build package"
   },
   "dependencies": {
-    "anix": "^0.2.3"
+    "anix": "^0.2.3",
+    "prop-types": "^15.5.6"
   },
   "devDependencies": {
     "aphrodite": "^0.5.0",

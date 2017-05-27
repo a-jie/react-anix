@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Anix } from '../../build/';
+import { Anix } from 'test-react-anix';
 
 export default class App extends Component {
 

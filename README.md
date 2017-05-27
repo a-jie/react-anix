@@ -22,16 +22,14 @@ import and use the AniX library.
 import { Anix } from 'react-anix';
 
 <Anix 
-  anis={[
-  { left:'20px', time:.5, delay:3, play:this.state.play },
-  { color:'#ffcccc', time:.5, onComplete:this.aniComplete.bind(this), appear:true },
-  { color:'#ffcccc', time:.5, ease:'easeInOutBack', disAppear:true },
-  { color:'#ffcccc', time:.5, play:'disAppear' },
-  { time:.5, appear:true ,from:{ width:'20px' }, to: { width:'220px', delay:.1 }}
+  anis = {[
+    { left: '120px', background: '#000', time: .5 },
+    { background: color, width: 0, time: .5, onComplete: this.aniComplete.bind(this), disAppear: true },
+    { time: .5, from: { width: '0px' }, to: { width: '350px', background: color, delay: .1 }, appear: true }
   ]}
 	
   or 
-  ani={{ left:'20px', time:.5, play:this.state.play }}
+  ani={{ left:'20px', time:.5, delay: 1 }}
   
   or 
   appear={{ left:'20px', time:.5 }}
