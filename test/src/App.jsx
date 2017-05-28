@@ -61,7 +61,7 @@ export default class App extends Component {
             { background: color, width: 0, time: .5, onComplete: this.aniComplete.bind(this), disAppear: true },
             { time: .5, from: { width: '0px' }, to: { width: '350px', background: color, delay: .1 }, appear: true }
           ]}
-
+          
           play={this.state.play}
         >
           {items}

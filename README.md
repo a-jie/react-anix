@@ -1,21 +1,22 @@
 # react-anix
 
-The Simplest Animation Plugin for react.
+Super easy and lightweight transitions animation library for React.
 
 ## Overview
-AniX is an animation plugin for react.   
 
-It is very simple and convenient to use. At the same time it has very good compatibility.   
+react-anix extended from the [AniX](https://github.com/a-jie/AniX) library. It is a lightweight and easy-to-use animation library for React with excellent performance and good compatibility for modern browsers.
+
+It uses the native css transition attribute, better than js simulation animation performance. 
 
 ## Install and Usage
 Quick Start
-Install and manage AniX with npm.
+Install and manage react-anix with npm.
 
 ```
 $ npm install react-anix --save
 ```
 
-import and use the AniX library.
+import and use the react-anix library.
 
 ```
 //1. import module
@@ -41,12 +42,71 @@ import { Anix } from 'react-anix';
   </Anix>
 ```
 
+### Appear Animation
+```
+<Anix appear={{ left:'120px', time:.5 , delay:.1, ease:'easeBackOut'}}>
+	{items}
+</Anix>
+
+or
+
+let appear = {time: .5, from: { width: '0px' }, to: { width: '350px' }}
+<Anix appear={appear}>
+	{items}
+</Anix>
+```
+
+### DisAppear Animation
+```
+onComplete(){}
+...
+
+<Anix disAppear={{ width:'0px', time:.5 , onComplete:this.onComplete.bind(this) }}>
+	{items}
+</Anix>
+```
+
+### Control Animation
+```
+<Anix ani={{ background:'#ffcc00', time:.5 }} play={this.state.play}>
+	{items}
+</Anix>
+
+//control animation play
+this.setState({ play:true });
+```
+
+### About anis prop
+Appear DisAppear and Control ani  write together  
+
+```
+<Anix 
+	anis = {[
+    { left: '120px', background: '#000', time: .5 },
+    { background: color, width: 0, time: .5, onComplete: this.aniComplete.bind(this), disAppear: true },
+    { time: .5, from: { width: '0px' }, to: { width: '350px', background: color, delay: .1 }, appear: true }
+  ]}
+>
+	{items}
+</Anix>
+```
+
+### about init prop
+The init prop is used to control whether the default initial child is animated
+```
+<Anix appear={{ width:'120px', time:.5}} init={true}>
+	{items}
+</Anix>
+```
+
+
 ## Test and Build
 
 ```
-npm start
+$ cd test
+$ npm install
+$ npm start
 ```
-view on http://localhost:3000/
 
 ## License
 
