@@ -99,6 +99,20 @@ The init prop is used to control whether the default initial child is animated
 </Anix>
 ```
 
+### More direct to control the animation use refs
+```
+//Note the case
+import { Anix, AniX } from 'react-anix';
+...
+
+//use refs
+animate(){
+	AniX.to(this.refs.title, .5, {width:'500px'});
+}
+...
+
+<div className="red" ref="title">hello</div>
+```
 
 ## Test and Build
 
