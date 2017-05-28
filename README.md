@@ -8,6 +8,9 @@ react-anix extended from the [AniX](https://github.com/a-jie/AniX) library. It i
 
 It uses the native css transition attribute, better than js simulation animation performance. 
 
+For more information and demo please see
+[https://ajie.github.io/AniX/](https://ajie.github.io/AniX/).
+
 ## Install and Usage
 Quick Start
 Install and manage react-anix with npm.
