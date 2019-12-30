@@ -1,6 +1,6 @@
 {
   "name": "react-anix",
-  "version": "0.1.8",
+  "version": "0.2.1",
   "license": "BSD",
   "keywords": [
     "react",
@@ -9,7 +9,7 @@
     "animate"
   ],
   "main": "src/index.ts",
-  "homepage": "https://github.com/a-jie/react-anix",
+  "homepage": "https://github.com/drawcall/react-anix",
   "scripts": {
     "start": "",
     "package": "node .makepackage.js",

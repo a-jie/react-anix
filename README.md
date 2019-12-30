@@ -4,12 +4,12 @@ Super easy and lightweight transitions animation library for React.
 
 ## Overview
 
-react-anix extended from the [AniX](https://github.com/a-jie/AniX) library. It is a lightweight and easy-to-use animation library for React with excellent performance and good compatibility for modern browsers.
+react-anix extended from the [AniX](https://github.com/drawcall/AniX) library. It is a lightweight and easy-to-use animation library for React with excellent performance and good compatibility for modern browsers.
 
 It uses the native css transition attribute, better than js simulation animation performance. 
 
 For more information and demo please see
-[https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/).
+[https://drawcall.github.io/AniX/](https://drawcall.github.io/AniX/).
 
 ## Install and Usage
 Quick Start
